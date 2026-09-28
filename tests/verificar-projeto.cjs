@@ -1,0 +1,15 @@
+const fs=require('node:fs'),assert=require('node:assert/strict'),path=require('node:path'),vm=require('node:vm');
+const base=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(base,'www/index.html'),'utf8'),xml=fs.readFileSync(path.join(base,'config.xml'),'utf8');
+for(const token of ['pending_delivery','pending_return','returnDeliveryForm','catalogFile','searchInput','parseArkId','receipt(r)','personReceipt(n,label,p)','carrierLoan','carrierReturn'])assert.ok(html.includes(token),'Não encontrou '+token);
+for(const token of ['COMPROVANTE DE EMPRÉSTIMO','COMPROVANTE DE DEVOLUÇÃO','01 • ENTREGA NA ORIGEM','06 • RECEBIMENTO NA ORIGEM'])assert.ok(html.includes(token),'Cupom faltando '+token);
+assert.ok(xml.includes('android.permission.CAMERA'));
+assert.ok(fs.existsSync(path.join(base,'dicionario/Modelo_Dicionario_Equipamentos.csv')));
+assert.ok(fs.existsSync(path.join(base,'resources/icon.png')));
+for(const token of ['getExportDirectory','shareSavedFile','listSavedExports','writer.truncate(0)',"file.value=\'\'",'externalDataDirectory'])assert.ok(html.includes(token),'Correção ausente: '+token);
+const app=html.match(/<script>\(\(\)=>\{[\s\S]*?<\/script>/);
+assert.ok(app,'Script principal não encontrado');
+new vm.Script(app[0].slice('<script>'.length,-'</script>'.length));
+assert.ok(fs.existsSync(path.join(base,'scripts/preparar-www.cjs')));
+assert.ok(!fs.existsSync(path.join(base,'.github/workflows/gerar-apk2.yml')));
+assert.ok(!fs.existsSync(path.join(base,'saida/Avaliacao_de_Chamados.apk')));
+console.log('OK: fluxo de empréstimo/devolução, exportação persistente, APK correto e JavaScript válido.');
