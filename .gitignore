@@ -1,0 +1,8 @@
+node_modules/
+plugins/
+platforms/
+www/vendor/*.js
+!www/vendor/LEIA-ME.txt
+saida/*.apk
+*.log
+.DS_Store

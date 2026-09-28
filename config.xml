@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget id="br.hnl.engenhariaclinica.movimentacoes" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>HNL Movimentações</name>
+    <description>Controle de empréstimos e devoluções de equipamentos da Engenharia Clínica do HNL.</description>
+    <author>Engenharia Clínica — HNL</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="mailto:*" />
+    <preference name="Fullscreen" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="AndroidXEnabled" value="true" />
+    <preference name="android-targetSdkVersion" value="36" />
+    <preference name="android-compileSdkVersion" value="36" />
+    <preference name="AndroidInsecureFileModeEnabled" value="false" />
+    <icon src="resources/icon.png" />
+    <platform name="android">
+       <config-file target="AndroidManifest.xml" parent="/manifest">
+           <uses-permission android:name="android.permission.CAMERA" />
+       </config-file>
+       <icon src="resources/icon.png" />
+       <preference name="AndroidWindowSplashScreenBackground" value="#0B64C5" />
+       <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/icon.png" />
+       <preference name="AndroidWindowSplashScreenAnimationDuration" value="500" />
+    </platform>
+</widget>
