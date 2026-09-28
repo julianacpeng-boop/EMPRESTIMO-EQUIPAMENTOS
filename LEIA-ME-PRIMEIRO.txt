@@ -1,0 +1,7 @@
+1. Abra a pasta do projeto e extraia todos os arquivos do ZIP.
+2. Crie um repositório NOVO no GitHub para HNL Movimentações. NÃO use o repositório do aplicativo Avaliação de Chamados.
+3. Envie para a raiz do repositório o conteúdo extraído, incluindo a pasta .github.
+4. Em GitHub > Actions > Gerar APK - HNL Movimentações > Run workflow.
+5. Baixe o artefato HNL-Movimentacoes-APK. Para uso institucional, ainda teste câmera, importação e exportação no celular Android e configure distribuição/assinatura.
+
+ATENÇÃO: se já utiliza o APK e há documentos reais nele, NÃO desinstale a versão atual antes de obter um backup fora do aplicativo. Um novo APK debug do GitHub pode ter assinatura diferente.
